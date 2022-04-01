@@ -1,52 +1,25 @@
-// We Will Do This Using Two Methods
+const hex = document.querySelector(".hex");
+const btn = document.querySelector(".generate");
 
-// Method One - Using Multiple Event Listeners
-const count = document.querySelector(".count");
-const add = document.querySelector (".add");
-const subtract = document.querySelector (".subtract");
-const resetCount = document.querySelector (".reset");
+const generateColor = () => {
+    const randomColor = Math.random().toString(16).substring(2, 8);
+    document.body.style.backgroundColor = "#" + randomColor;
+    hex.innerHTML = "#" + randomColor;
+};
 
-add.addEventListener ("click", () => {
-    count.innerHTML++;
-        setColor();
-});
-subtract.addEventListener ("click", () => {
-    count.innerHTML--;
-        setColor();
-});
-resetCount.addEventListener ("click", () => {
-    count.innerHTML = 0;
-        setColor();
-});
+btn.addEventListener ("click", generateColor);
+
+generateColor();
 
 
-// Method Two - Using Event Delegation
-// const buttons = document.querySelector(".buttons");
-// const count = document.querySelector(".count");
-
-// buttons.addEventListener ("click", (e) => {
-//     if (e.target.classList.contains ("add")) {
-//         count.innerHTML++;
-//         setColor();
-//     }
-//     if (e.target.classList.contains ("subtract")) {
-//         count.innerHTML--;
-//         setColor();
-//     }
-//     if (e.target.classList.contains ("reset")) {
-//         count.innerHTML = 0;
-//         setColor();
-//     }
-// });
 
 
-// Changing Count Number Colour 
-function setColor() {
-    if (count.innerHTML > 0) {
-        count.style.color = "yellow";
-    } else if (count.innerHTML < 0){
-        count.style.color = "orangered";
-    } else {
-        count.style.color = "white";
-    }
-}
+
+
+
+
+
+// let color = Math.random();
+// color = Math.random().toString(16);
+// color = Math.random().toString(16).substring(2, 8);
+// console.log(color);
